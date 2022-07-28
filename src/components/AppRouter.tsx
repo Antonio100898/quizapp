@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { RoutesType } from "../interfaces";
 import GettingStartedPage from "../pages/GettingStartedPage";
 import WelcomePage from "../pages/WelcomePage";
+import Quizz from "./Quizz";
 
 const AppRouter = () => {
   const routes: RoutesType = [
@@ -13,6 +14,10 @@ const AppRouter = () => {
       path: "/gettingstarted",
       component: <GettingStartedPage />,
     },
+    {
+      path: "/quiz",
+      component: <Quizz/>
+    }
   ];
   return (
     <Routes>

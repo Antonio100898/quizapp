@@ -34,7 +34,13 @@ export type RoutesType = {
     path: string;
     component: ReactNode;
 }[];
+export type Categories = {
+        id: number
+        name: string
+}[]
 export interface IMainSliceInitState {
+    categoriesList: Categories
+    questions: QuestionType[]
     token: string
     currentQuestion: number
     correct: boolean | undefined
@@ -42,7 +48,14 @@ export interface IMainSliceInitState {
     disabledNextButton: boolean
     finish: boolean
     selectedAnswer: string
-    url: string
     amount: string
     started: boolean
+    category: string
+    difficulty: string
+    loading: boolean
+}
+export interface IGetQuestions {
+    amount: string
+    category?: string
+    difficulty?: string
 }
