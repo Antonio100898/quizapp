@@ -4,19 +4,16 @@ import { setAmount } from "../store/main/mainSlice"
 const Step3 = (props: any) => {
     const dispatch = useAppDispatch()
     
-    const handleValueChange = (e: any) => {
-        dispatch(setAmount(e.target.value))
-        console.log(e.target.value);
+    const amountHandler = (value: string) => {
+        dispatch(setAmount(value))
+        props.nextStep()
     }
 
     return <div>
         <h1>How many questions</h1>
-        <select onChange={handleValueChange}>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-        </select>
-        <button onClick={props.nextStep}>go to step 4</button>
+            <button onClick={() => amountHandler("10")}>10</button>
+            <button onClick={() => amountHandler("15")}>15</button>
+            <button onClick={() => amountHandler("20")}>20</button>
         <button onClick={props.previousStep}>back</button>
     </div>
 }

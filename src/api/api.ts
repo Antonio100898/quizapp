@@ -15,7 +15,7 @@ export const api = {
         let url = `api.php?amount=${amount}`
         if (category) url += "&category=" + category
         if (difficulty) url += "&difficulty=" + difficulty
-        url += "&encode=base64"
+        url += "&encode=base64" + "&token=" + token
         return instance.get(url)
     }
 }

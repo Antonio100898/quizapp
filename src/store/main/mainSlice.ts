@@ -14,7 +14,7 @@ const initialState: IMainSliceInitState = {
     correctAnswersCount: 0,
     disabledNextButton: true,
     finish: false,
-    selectedAnswer: "",
+    selectedAnswer: null,
     amount: "10",
     started: false,
     loading: false
@@ -42,7 +42,7 @@ const mainSlice = createSlice({
         setFinish: (state, action: PayloadAction<boolean>) => {
             state.finish = action.payload
         },
-        setSelectedAnswer: (state, action: PayloadAction<string>) => {
+        setSelectedAnswer: (state, action: PayloadAction<string | null>) => {
             state.selectedAnswer = action.payload
         },
         setAmount: (state, action: PayloadAction<string>) => {
@@ -72,5 +72,5 @@ const mainSlice = createSlice({
 export const { setAmount, setCorrect, setCorrectAnswersCount,
     setCurrentQuestion, setDisabledNextButton, setFinish,
     setSelectedAnswer, setStarted, setToken,
-    setQuestions, setCategories, setCategory, setDifficulty } = mainSlice.actions
+    setQuestions, setCategories, setCategory, setDifficulty, setLoading } = mainSlice.actions
 export const mainReducer = mainSlice.reducer

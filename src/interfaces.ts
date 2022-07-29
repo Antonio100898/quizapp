@@ -16,17 +16,10 @@ export type QuestionType = {
 }
 export interface IQuestionProps {
     questionObject: QuestionType
-    setCorrect: (value: boolean | undefined) => void
-    setCorrectAnswersCount: (value: number) => void
     correctAnswersCount: number
-    setDisabledNextButton: (value: boolean) => void
-    disabledNextButton: boolean
-    setFinish: (value: boolean) => void
     currentQuestion: number
-    selectedAnswer: string
-    setSelectedAnswer: (value: string) => void
+    selectedAnswer: String
     amount: string
-    setCurrentQuestion: (value: number) => void
     correct: boolean | undefined
     finish: boolean
 }
@@ -47,7 +40,7 @@ export interface IMainSliceInitState {
     correctAnswersCount: number
     disabledNextButton: boolean
     finish: boolean
-    selectedAnswer: string
+    selectedAnswer: string | null
     amount: string
     started: boolean
     category: string

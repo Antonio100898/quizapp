@@ -1,6 +1,18 @@
+import { useEffect } from "react";
 import AppRouter from "./components/AppRouter";
+import { Loader } from "./components/Loader";
+import { useAppDispatch } from "./hooks/redux";
+import { useToken } from "./hooks/useToken";
+import { setToken } from "./store/main/mainSlice";
 
 function App() {
+  const localToken = useToken()
+  const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        if(localToken) dispatch(setToken(localToken))
+    }, [localToken])
+
   return (
     <div className="w-screen h-screen bg-indigo-900 flex justify-center">
       <div className="w-1/2 h-screen bg-indigo-800">

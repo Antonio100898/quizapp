@@ -1,27 +1,42 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { useToken } from "../hooks/useToken";
-import { QuestionType } from "../interfaces";
-import { setToken } from "../store/main/mainSlice";
-//import Question from "./Question";
+import { getQuestionsThunk } from "../store/main/mainActions";
+import { setQuestions, setStarted } from "../store/main/mainSlice";
+import { Loader } from "./Loader";
+import Question from "./Question";
 
 function Quizz() {
-  const { questions, finish, amount, selectedAnswer, started, disabledNextButton, currentQuestion, correct, correctAnswersCount} = useAppSelector((state) => state.main);
-  return (
-    <div>
-      {/* {questions.length > 0 && started && (
-        <Question
-          finish={finish}
-          disabledNextButton={disabledNextButton}
-          amount={amount}
-          selectedAnswer={selectedAnswer}
-          currentQuestion={currentQuestion}
-          correctAnswersCount={correctAnswersCount}
-          correct={correct}
-          questionObject={questions[currentQuestion]}
-        />
-      )} */}
-    </div>
-  );
+  const {
+    started,
+    questions,
+    amount,
+    category,
+    difficulty,
+    token,
+    loading,
+  } = useAppSelector((state) => state.main);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const items = localStorage.getItem("questions")
+    if (items === null) {
+      dispatch(getQuestionsThunk(amount, category, difficulty, token));
+    } else {
+      dispatch(setQuestions(JSON.parse(items))) 
+    }
+    dispatch(setStarted(true));
+  }, []);
+
+
+  if (loading) return <Loader />;
+  else
+    return (
+      <div>
+        {questions.length > 0 && started && (
+          <Question/>
+        )}
+      </div>
+    );
 }
 export default Quizz;

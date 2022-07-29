@@ -9,7 +9,7 @@ export const useToken = () => {
 
     const handleToken = async () => {
         let item = localStorage.getItem("token")
-        if (item) setToken(item)
+        if (item) setToken(JSON.parse(item))
         else {
             try {
                 const response = await api.getToken()
