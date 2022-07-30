@@ -8,7 +8,7 @@ import AppStepWizard from "./StepWizard";
 const AppRouter = () => {
   const routes: RoutesType = [
     {
-      path: "",
+      path: "/",
       component: <WelcomePage />,
     },
     {

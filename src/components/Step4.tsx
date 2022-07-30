@@ -12,9 +12,7 @@ const Step4 = (props: any) => {
   );
   const startingQuiz = async () => {
     dispatch(setFinish(false));
-    setTimeout(() => {
-      navigate("/quiz");
-    }, 1500);
+    navigate("/quiz");
   };
 
   return (
@@ -23,12 +21,21 @@ const Step4 = (props: any) => {
       <div className="flex flex-col justify-between h-28 mt-10">
         <p className="text-sm">
           Category of questions will be:{" "}
-          <span className="highligth">{categoryName !== "" ? categoryName : "any"}</span>
+          <span className="highligth">
+            {categoryName !== "" ? categoryName : "any"}
+          </span>
         </p>
         <p className="text-sm">
-          You have chosen <span className="highligth">{difficulty !== "" ? difficulty : "any"}</span> difficulty
+          You have chosen{" "}
+          <span className="highligth">
+            {difficulty !== "" ? difficulty : "any"}
+          </span>{" "}
+          difficulty
         </p>
-        <p className="text-sm">You going to answer on <span className="highligth">{amount}</span> questions</p>
+        <p className="text-sm">
+          You going to answer on <span className="highligth">{amount}</span>{" "}
+          questions
+        </p>
       </div>
       <div className="mt-10 flex w-1/3 justify-between">
         <ChoiceButton onClick={startingQuiz}>Start quiz!</ChoiceButton>
