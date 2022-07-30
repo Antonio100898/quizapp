@@ -1,46 +1,16 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+A quiz application using:
+ - React.js
+ - Redux Toolkit
+ - Rest API (axios), making requests on open source questions database: https://opentdb.com/ 
+ - TailwindCSS
+ - React hooks
+ - Custom hooks
+ - React Router Dom
+ ![Capture](https://user-images.githubusercontent.com/99435115/181909210-7427ecb2-4d7f-485d-958d-6620db2542b7.PNG)
+![Capture2](https://user-images.githubusercontent.com/99435115/181909212-cbfd5ad3-2778-431c-9913-bb12050a7d30.PNG)
+![Capture3](https://user-images.githubusercontent.com/99435115/181909213-013b77f0-8158-4df9-b688-839106e78f9e.PNG)
+![Capture4](https://user-images.githubusercontent.com/99435115/181909217-9750e987-75f1-46ee-9bda-90e8bf3a96c4.PNG)
+![Capture5](https://user-images.githubusercontent.com/99435115/181909218-2b536ea6-1d61-40c5-8f20-c61c9b3807b7.PNG)
+![Capture6](https://user-images.githubusercontent.com/99435115/181909220-925d56ff-305a-4cb5-8b38-8ab5f8aee283.PNG)
+![Capture7](https://user-images.githubusercontent.com/99435115/181909221-60fe5123-2da9-47fb-99b8-638c2df66fef.PNG)
+![Capture8](https://user-images.githubusercontent.com/99435115/181909223-b9ad067f-6857-4452-80ef-1154ee9ecb07.PNG)
