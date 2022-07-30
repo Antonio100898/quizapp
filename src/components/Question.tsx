@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { finishQuiz } from "../store/main/mainActions";
 import {
   setCorrect,
   setCorrectAnswersCount,
   setCurrentQuestion,
   setDisabledNextButton,
-  setFinish,
   setSelectedAnswer,
 } from "../store/main/mainSlice";
+import NextButton from "./NextButton";
 
 const Question = () => {
   const [correctAnswer, setCorrectAnswer] = useState<string>("");
@@ -41,10 +42,6 @@ const Question = () => {
   }, [currentQuestion]);
 
   useEffect(() => {
-    finish && navigate("/gettingstarted");
-  }, [finish]);
-
-  useEffect(() => {
     setJoinedAnswers(incorrectAnswers.concat(correctAnswer).sort());
   }, [correctAnswer, incorrectAnswers]);
 
@@ -53,8 +50,7 @@ const Question = () => {
       dispatch(setCorrectAnswersCount(correctAnswersCount + 1));
     }
     if (currentQuestion === amountNumber - 1) {
-      dispatch(setFinish(true));
-      localStorage.removeItem("questions");
+      dispatch(finishQuiz)
       navigate("/finishedquiz");
     }
     dispatch(setCorrect(undefined));
@@ -73,17 +69,17 @@ const Question = () => {
       ? dispatch(setCorrect(true))
       : dispatch(setCorrect(false));
   };
-
+  
   return (
     <div>
-      <div>{questionString && atob(questionString)}</div>
+      <div className="text-center">{questionString && atob(questionString)}</div>
       {selectedAnswer === null ? (
-        <div>
+        <div className="answers_wrapper">
           {joinedAnswers.length > 0 &&
             joinedAnswers.map((answer: string) => (
               <div key={answer}>
                 <button
-                  className="bg-white"
+                  className="answer-btn"
                   onClick={() => correctAnswerHandler(answer)}
                 >
                   {answer && atob(answer)}
@@ -92,27 +88,26 @@ const Question = () => {
             ))}
         </div>
       ) : (
-        <div>
+        <div className="answers_wrapper">
           {joinedAnswers.length > 0 &&
             joinedAnswers.map((answer: string) => (
-              <div key={answer}>
-                <div
-                  className={
-                    selectedAnswer === answer ? "bg-green-400" : "bg-red-400"
-                  }
-                >
-                  {answer && atob(answer)}
-                </div>
+              <div
+                key={answer}
+                className={
+                  correctAnswer === answer ? "correct_answer" : "incorrect_answer"
+                }
+              >
+                {answer && atob(answer)}
               </div>
             ))}
         </div>
       )}
 
-      <div>
+      <div className="text-center">
         {currentQuestion <= amountNumber - 1 && (
-          <button disabled={disabledNextButton} onClick={nextButtonClick}>
+          <NextButton disabled={disabledNextButton} onClick={nextButtonClick}>
             next
-          </button>
+          </NextButton>
         )}
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { useAppDispatch } from "../hooks/redux";
 import { setDifficulty } from "../store/main/mainSlice";
+import BackButton from "./BackButton";
+import ChoiceButton from "./ChoiceButton";
 
 const Step2 = (props: any) => {
   const dispatch = useAppDispatch();
@@ -8,13 +10,13 @@ const Step2 = (props: any) => {
     props.nextStep();
   };
   return (
-    <div>
-      <h1>Choose difficulty</h1>
-      <button onClick={() => difficultyHandler("")}>any difficulty</button>
-      <button onClick={() => difficultyHandler("easy")}>easy</button>
-      <button onClick={() => difficultyHandler("medium")}>medium</button>
-      <button onClick={() => difficultyHandler("hard")}>hard</button>
-      <button onClick={props.previousStep}>back</button>
+    <div className="flex-box">
+      <h1 className="header">Choose difficulty</h1>
+      <ChoiceButton onClick={() => difficultyHandler("")}>any difficulty</ChoiceButton>
+      <ChoiceButton onClick={() => difficultyHandler("easy")}>easy</ChoiceButton>
+      <ChoiceButton onClick={() => difficultyHandler("medium")}>medium</ChoiceButton>
+      <ChoiceButton onClick={() => difficultyHandler("hard")}>hard</ChoiceButton>
+      <BackButton onClick={props.previousStep}>back</BackButton>
     </div>
   );
 };

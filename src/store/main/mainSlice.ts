@@ -6,6 +6,7 @@ import { Categories, IMainSliceInitState, QuestionType } from "../../interfaces"
 const initialState: IMainSliceInitState = {
     categoriesList: [],
     category: "",
+    categoryName: "",
     difficulty: "",
     token: "",
     questions: [],
@@ -65,6 +66,9 @@ const mainSlice = createSlice({
         },
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload
+        },
+        setCategoryName: (state, action: PayloadAction<string>) => {
+            state.categoryName = action.payload
         }
     }
 });
@@ -72,5 +76,6 @@ const mainSlice = createSlice({
 export const { setAmount, setCorrect, setCorrectAnswersCount,
     setCurrentQuestion, setDisabledNextButton, setFinish,
     setSelectedAnswer, setStarted, setToken,
-    setQuestions, setCategories, setCategory, setDifficulty, setLoading } = mainSlice.actions
+    setQuestions, setCategories, setCategory, setDifficulty,
+    setLoading, setCategoryName } = mainSlice.actions
 export const mainReducer = mainSlice.reducer

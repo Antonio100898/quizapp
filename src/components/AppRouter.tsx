@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { RoutesType } from "../interfaces";
 import FinishedQuizPage from "../pages/FinishedQuizPage";
-import GettingStartedPage from "../pages/GettingStartedPage";
 import WelcomePage from "../pages/WelcomePage";
 import Quizz from "./Quizz";
+import AppStepWizard from "./StepWizard";
 
 const AppRouter = () => {
   const routes: RoutesType = [
@@ -13,7 +13,7 @@ const AppRouter = () => {
     },
     {
       path: "/gettingstarted",
-      component: <GettingStartedPage />,
+      component: <AppStepWizard />,
     },
     {
       path: "/quiz",

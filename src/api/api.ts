@@ -11,11 +11,14 @@ export const api = {
     getToken: () => {
         return instance.get("api_token.php?command=request")
     },
-    getQuestions(amount: string, category: string, difficulty: string, token: string) {
+    getQuestions: (amount: string, category: string, difficulty: string, token: string) => {
         let url = `api.php?amount=${amount}`
         if (category) url += "&category=" + category
         if (difficulty) url += "&difficulty=" + difficulty
         url += "&encode=base64" + "&token=" + token
         return instance.get(url)
+    },
+    resetToken: (token: string) => {
+        return instance.get("api_token.php?command=reset&token=" + token)
     }
 }

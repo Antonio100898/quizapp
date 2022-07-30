@@ -1,27 +1,9 @@
 import { ReactNode } from "react"
 
-export interface ISubmitForm {
-    category: string
-    amount: string
-    difficulty: string
-}
-export interface IFilterFormProps {
-    setUrl: (value: string) => void
-    setAmount: (value: string) => void
-}
 export type QuestionType = {
     correct_answer: string
     incorrect_answers: string[]
     question: string
-}
-export interface IQuestionProps {
-    questionObject: QuestionType
-    correctAnswersCount: number
-    currentQuestion: number
-    selectedAnswer: String
-    amount: string
-    correct: boolean | undefined
-    finish: boolean
 }
 export type RoutesType = {
     path: string;
@@ -32,6 +14,7 @@ export type Categories = {
         name: string
 }[]
 export interface IMainSliceInitState {
+    categoryName: string
     categoriesList: Categories
     questions: QuestionType[]
     token: string
@@ -46,9 +29,4 @@ export interface IMainSliceInitState {
     category: string
     difficulty: string
     loading: boolean
-}
-export interface IGetQuestions {
-    amount: string
-    category?: string
-    difficulty?: string
 }
