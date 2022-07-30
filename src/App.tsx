@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="w-screen min-h-screen bg-main flex justify-center">
-      <div className="min-w-1/2 mt-44 flex justify-center">
+      <div className="w-1/2 mt-44 flex justify-center">
         <AppRouter />
       </div>
     </div>
