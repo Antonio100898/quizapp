@@ -17,8 +17,5 @@ export const api = {
         if (difficulty) url += "&difficulty=" + difficulty
         url += "&encode=base64" + "&token=" + token
         return instance.get(url)
-    },
-    resetToken: (token: string) => {
-        return instance.get("api_token.php?command=reset&token=" + token)
     }
 }

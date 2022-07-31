@@ -13,15 +13,18 @@ export const getCategoriesThunk = () => async (dispatch: AppDispatch) => {
     dispatch(setLoading(false))
 }
 export const getQuestionsThunk = (amount: string, category: string, difficulty: string, token: string) => async (dispatch: AppDispatch) => {
+    debugger
     dispatch(setLoading(true))
     try {
         const response = await api.getQuestions(amount, category, difficulty, token)
         if (response.data.response_code === 3 || response.data.response_code === 4) {
             try {
-                const response2 = await api.resetToken(token)
+                const response2 = await api.getToken()
                 localStorage.setItem("token", response2.data.token)
                 const response3 = await api.getQuestions(amount, category, difficulty, response2.data.token)
                 dispatch(setQuestions(response3.data.results))
+                console.log(response2);
+                console.log(response3);
             } catch (error) {
                 console.log(error);
             }
@@ -34,6 +37,7 @@ export const getQuestionsThunk = (amount: string, category: string, difficulty: 
         console.log(error);
     }
     dispatch(setLoading(false))
+
 }
 export const newQuizReset = (dispatch: AppDispatch) => {
     dispatch(setCurrentQuestion(0))
