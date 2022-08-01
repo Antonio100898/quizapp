@@ -1,4 +1,7 @@
-A quiz application using:
+A quiz application where user can choose category, difficulty and 
+amount of the question he would like to answer.
+
+Technologies:
  - React.js
  - Redux Toolkit
  - Rest API (axios), making requests on open source questions database: https://opentdb.com/ 
