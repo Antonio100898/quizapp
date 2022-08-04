@@ -9,6 +9,7 @@ Technologies:
  - React hooks
  - Custom hooks
  - React Router Dom
+ -Deployed on netlify : https://62ebe0a29fcd7b268ad0591a--gregarious-scone-347015.netlify.app/
  ![Capture](https://user-images.githubusercontent.com/99435115/181909210-7427ecb2-4d7f-485d-958d-6620db2542b7.PNG)
 ![Capture2](https://user-images.githubusercontent.com/99435115/181909212-cbfd5ad3-2778-431c-9913-bb12050a7d30.PNG)
 ![Capture3](https://user-images.githubusercontent.com/99435115/181909213-013b77f0-8158-4df9-b688-839106e78f9e.PNG)
